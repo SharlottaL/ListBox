@@ -31,7 +31,7 @@ BOOL CALLBACK DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		{
 			SendMessage(hList, LB_ADDSTRING, 0, (LPARAM)G_SZ_VALUES[i]);
 		}
-	}//Выполняется один раз - при запуске окна
+	}
 	break;
 	case WM_COMMAND:
 	{
@@ -42,7 +42,7 @@ BOOL CALLBACK DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 			break;
 		case IDC_BUTTON_DELETE:
 		{
-			HWND hList = GetDlgItem(hwnd, IDC_LIST); // убедитесь, что у вас правильный ID
+			HWND hList = GetDlgItem(hwnd, IDC_LIST); 
 			int iSel = (int)SendMessage(hList, LB_GETCURSEL, 0, 0);
 			if (iSel != LB_ERR)
 			{
@@ -72,9 +72,9 @@ BOOL CALLBACK DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		case IDCANCEL:EndDialog(hwnd, 0); break;
 		}
 	}
-	//Обрабатывает нажатие кнопок, перемещение мыши и т.д.
+	
 	break;
-	case WM_CLOSE:		//Отрабатывает при нажатии на кнопку "Закрыть" X
+	case WM_CLOSE:		
 		EndDialog(hwnd, 0);
 		break;
 	}
